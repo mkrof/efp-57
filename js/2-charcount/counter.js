@@ -1,4 +1,5 @@
 export default (str) => {
   const s = str.trim();
-  return `${s} has ${s.length} characters.`;
+  const len = s.length;
+  return `${s} has ${len} character${len === 1 ? '' : 's'}.`;
 };

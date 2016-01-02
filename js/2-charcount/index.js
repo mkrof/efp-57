@@ -1,6 +1,15 @@
 import ask from '../utils/ask';
 import counter from './counter';
 
-ask(`What's the input string?`, (str) => {
-  console.log(counter(str));
-});
+const init = () => {
+  ask(`What's the input string?`, (str) => {
+    if (str.trim().length === 0) {
+      console.log('Enter something...');
+      init();
+    } else {
+      console.log(counter(str));
+    }
+  });
+};
+
+init();

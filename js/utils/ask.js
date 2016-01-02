@@ -5,7 +5,7 @@ export default (question, cb) => {
 
   console.log(question);
 
-  stdin.on('data', (...args) => {
+  stdin.once('data', (...args) => {
     stdin.pause();
     cb.apply(null, args);
   });
