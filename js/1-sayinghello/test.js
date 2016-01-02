@@ -1,5 +1,5 @@
 import test from 'tape';
-import { default as greeter } from './utils';
+import greeter from './greeter';
 
 test('greeter', (t) => {
   t.plan(1);

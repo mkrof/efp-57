@@ -1,8 +1,7 @@
-import { default as greeter } from './utils';
-process.stdin.resume();
-process.stdin.setEncoding('utf8');
-console.log(`What's your name?`);
-process.stdin.on('data', (text) => {
+import greeter from './greeter';
+import ask from '../utils/ask.js';
+
+ask('What is your name?', (text) => {
   console.log(greeter(text));
   process.exit();
 });
