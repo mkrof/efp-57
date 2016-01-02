@@ -1,12 +1,15 @@
-export default (question, cb) => {
+export default (question) => {
   const stdin = process.stdin;
   stdin.resume();
   stdin.setEncoding('utf8');
-
   console.log(question);
 
-  stdin.once('data', (...args) => {
-    stdin.pause();
-    cb.apply(null, args);
+  return new Promise((resolve, reject) => {
+    stdin.once('data', (answer) => {
+      stdin.pause();
+      resolve(answer);
+    }).on('error', (err) => {
+      reject(err);
+    });
   });
 };
